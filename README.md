@@ -17,7 +17,7 @@ Dependencies:
 1. [qb-drawtext](https://github.com/IdrisDose/qb-drawtext)
 
 ### Credit
-Credit to my boy [Nathan](https://github.com/Nathan-FiveM) 😀😀
+Thanks to my boy [Nathan](https://github.com/Nathan-FiveM) 😀😀
 
 Original repo: [qb-garages](https://github.com/qbcore-framework/qb-garages)
 
