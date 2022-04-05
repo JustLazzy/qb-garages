@@ -81,7 +81,7 @@ QBCore.Functions.CreateCallback("qb-garage:server:checkVehicleScratched", functi
     MySQL.Async.fetchAll('SELECT * FROM player_vehicles WHERE plate = ? AND citizenid = ?',{plate, pData.PlayerData.citizenid}, function(result)
         print("VIN NUM: "..result[1].vinnum)
         if result[1] and result[1].vinnum == "NULL" then
-            cb(true)
+            cb(true, result[1].balance)
         else
             cb(false)
         end
