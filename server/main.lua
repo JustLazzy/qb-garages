@@ -56,7 +56,7 @@ QBCore.Functions.CreateCallback("qb-garage:server:checkVehicleOwner", function(s
     local pData = QBCore.Functions.GetPlayer(src)
     MySQL.Async.fetchAll('SELECT * FROM player_vehicles WHERE plate = ? AND citizenid = ?',{plate, pData.PlayerData.citizenid}, function(result)
         if result[1] then
-            cb(true)
+            cb(true, result[1].balance)
         else
             cb(false)
         end
