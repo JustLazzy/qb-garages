@@ -2,6 +2,8 @@
 
 Add this two exports at the bottom of your `qb-radialmenu/client/main.lua`
 
+## YOU DON'T NEED TO DO THIS IF YOU HAVE LATEST QB-RADIALMENU
+
 ```lua
 exports('AddOption', function(id, data)
     Config.MenuItems[id] = data
