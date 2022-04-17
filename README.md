@@ -1,25 +1,12 @@
 # qb-garages
 
-Add this two exports at the bottom of your `qb-radialmenu/client/main.lua`
-
-## YOU DON'T NEED TO DO THIS IF YOU HAVE LATEST QB-RADIALMENU
-
-```lua
-exports('AddOption', function(id, data)
-    Config.MenuItems[id] = data
-end)
-
-exports('RemoveOption', function(id)
-    Config.MenuItems[id] = nil
-end)
-```
-
 Dependencies:
 
-1. [qb-drawtext](https://github.com/IdrisDose/qb-drawtext)
+1. qb-radialmenu
 
 ### Credit
-Thanks to my boy [Nathan](https://github.com/Nathan-FiveM) 😀😀
+
+Thanks to [Nathan](https://github.com/Nathan-FiveM)
 
 Original repo: [qb-garages](https://github.com/qbcore-framework/qb-garages)
 
