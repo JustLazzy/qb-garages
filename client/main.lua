@@ -40,9 +40,9 @@ function RegisterHousePoly(house)
         Polyzone:onPlayerInOut(function(isPpointInside)
             if isPpointInside then
                 inHouseParking = true
-                exports['qb-drawtext']:DrawText('Parking','left')
+                exports['qb-core']:DrawText('Parking','left')
             else
-                exports['qb-drawtext']:HideText()	
+                exports['qb-core']:HideText()	
                 exports['qb-radialmenu']:RemoveOption(5)
                 inHouseParking = false
             end
@@ -685,11 +685,11 @@ alap01:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "alta"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local legion = PolyZone:Create({
@@ -706,11 +706,11 @@ legion:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "legion"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local paleto = PolyZone:Create({
@@ -728,11 +728,11 @@ paleto:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "paleto"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local vinewood = PolyZone:Create({
@@ -751,11 +751,11 @@ vinewood:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "vinewood"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local sandy = PolyZone:Create({
@@ -774,11 +774,11 @@ sandy:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "sandy"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local mrpd = PolyZone:Create({
@@ -795,11 +795,11 @@ mrpd:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inParkingZone = true
         currentgarage = "mrpd"
-        exports['qb-drawtext']:DrawText('Parking','left')
+        exports['qb-core']:DrawText('Parking','left')
     else
         inParkingZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 -- Depot
@@ -817,11 +817,11 @@ hayesdepot:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inDepotZone = true
         currentdepot = "hayesdepot"
-        exports['qb-drawtext']:DrawText('Depot','left')
+        exports['qb-core']:DrawText('Depot','left')
     else
         inDepotZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 local davisdepot = PolyZone:Create({
@@ -843,11 +843,11 @@ davisdepot:onPlayerInOut(function(isPointInside)
     if isPointInside then
         inDepotZone = true
         currentdepot = "davisdepot"
-        exports['qb-drawtext']:DrawText('Depot','left')
+        exports['qb-core']:DrawText('Depot','left')
     else
         inDepotZone = false
         exports['qb-radialmenu']:RemoveOption(5)
-        exports['qb-drawtext']:HideText()	
+        exports['qb-core']:HideText()	
     end
 end)
 
@@ -862,58 +862,58 @@ CreateThread(function()
                 if currentgarage == "mrpd" then
                     if QBCore.Functions.GetPlayerData().job.name == "police" or QBCore.Functions.GetPlayerData().job.name == "bcso" or QBCore.Functions.GetPlayerData().job.name == "sast" then
                         if not IsPedInAnyVehicle(ped) then
-                            exports['qb-radialmenu']:AddOption(5, {
+                            exports['qb-radialmenu']:AddOption({
                                 id = currentgarage,
                                 title = 'Open Garage',
                                 icon = 'warehouse',
                                 type = 'client',
                                 event = 'qb-garages:client:VehicleList',
                                 shouldClose = true
-                            })
+                            }, 5)
                         elseif IsPedInAnyVehicle(ped) then
-                            exports['qb-radialmenu']:AddOption(5, {
+                            exports['qb-radialmenu']:AddOption({
                                 id = currentgarage,
                                 title = 'Park Vehicle',
                                 icon = 'parking',
                                 type = 'client',
                                 event = 'qb-garages:client:putpublicgarage',
                                 shouldClose = true
-                            })
+                            }, 5)
                         end
                     end
                 else
                     if not IsPedInAnyVehicle(ped) then
-                        exports['qb-radialmenu']:AddOption(5, {
+                        exports['qb-radialmenu']:AddOption({
                             id = currentgarage,
                             title = 'Open Garage',
                             icon = 'warehouse',
                             type = 'client',
                             event = 'qb-garages:client:VehicleList',
                             shouldClose = true
-                        })
+                        }, 5)
                     elseif IsPedInAnyVehicle(ped) then
-                        exports['qb-radialmenu']:AddOption(5, {
+                        exports['qb-radialmenu']:AddOption({
                             id = currentgarage,
                             title = 'Park Vehicle',
                             icon = 'parking',
                             type = 'client',
                             event = 'qb-garages:client:putpublicgarage',
                             shouldClose = true
-                        })
+                        }, 5)
                     end
                 end
             end
             if inDepotZone then
                 nearspawnpoint = GetNearDepotPoint()
                 if not IsPedInAnyVehicle(ped) then
-                    exports['qb-radialmenu']:AddOption(5, {
+                    exports['qb-radialmenu']:AddOption({
                         id = currentdepot,
                         title = 'Open Depot',
                         icon = 'warehouse',
                         type = 'client',
                         event = 'qb-garages:client:DepotList',
                         shouldClose = true
-                    })
+                    }, 5)
                 elseif IsPedInAnyVehicle(ped) then
                     exports['qb-radialmenu']:RemoveOption(5)
                 end
@@ -960,23 +960,23 @@ CreateThread(function ()
             local pos = GetEntityCoords(ped)
             if inHouseParking then
                 if not IsPedInAnyVehicle(ped) then
-                    exports['qb-radialmenu']:AddOption(5, {
+                    exports['qb-radialmenu']:AddOption({
                         id = currentHouseGarage,
                         title = 'Open Garage',
                         icon = 'warehouse',
                         type = 'client',
                         event = 'qb-garages:client:openHouseGarage',
                         shouldClose = true
-                    })
+                    }, 5)
                 elseif IsPedInAnyVehicle(ped) then
-                    exports['qb-radialmenu']:AddOption(5, {
+                    exports['qb-radialmenu']:AddOption({
                         id = currentgarage,
                         title = 'Park Vehicle',
                         icon = 'parking',
                         type = 'client',
                         event = 'qb-garages:client:putGarageHouse',
                         shouldClose = true
-                    })
+                    }, 5)
                 end
             end     
         end
