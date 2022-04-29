@@ -1,4 +1,8 @@
+## NO LONGER PROVIDE ANY SUPPORT
+I recommend you to use [this](https://github.com/JonasDev99/qb-garages.git)
+
 # qb-garages
+
 
 Dependencies:
 
